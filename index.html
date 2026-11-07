@@ -12,23 +12,14 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#ffffff" />
 
-    <!-- TODO player: this embed is from another VTurb account (9277e305…),
-         inherited from the page it came from ("LEAD 3-GELAGEN [Pitch
-         47.27]"). Swap the player lines (these preloads and the embed in
-         #video) for the Lumivelle Embed from the H&W account
-         (a69a2e49-27d1-4ec3-8f00-39c14d078e68), and data-vdelay for its
-         pitch second. -->
-    <link
-      rel="preload"
-      href="https://scripts.converteai.net/9277e305-6e10-45ef-8690-34eb3d6aebf7/players/6a8f6030267f51fbe614e412/v4/player.js"
-      as="script"
-    />
+    <link rel="preload" href="https://scripts.converteai.net/56c6f9bc-53ca-40c3-8d9b-8c76bd771c4c/ab-test/6aef9910e4056bc5cf6bc8d2/player.js" as="script" />
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script" />
-    <link rel="preconnect" href="https://scripts.converteai.net" />
-    <link rel="preconnect" href="https://cdn.converteai.net" />
-    <link rel="preconnect" href="https://cdn.nlabs.cloud" />
+    <link rel="dns-prefetch" href="https://cdn.converteai.net" />
+    <link rel="dns-prefetch" href="https://scripts.converteai.net" />
     <link rel="dns-prefetch" href="https://images.converteai.net" />
+    <link rel="dns-prefetch" href="https://m3u8.vturb.net" />
     <link rel="dns-prefetch" href="https://license.vturb.com" />
+    <link rel="preconnect" href="https://cdn.nlabs.cloud" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -64,8 +55,8 @@
     <section class="vsl-video">
       <div class="wrap vsl-video__gutter">
         <div class="vsl-video__box" id="video" data-vdelay="2847" data-stage>
-          <vturb-smartplayer id="vid-6a8f6030267f51fbe614e412" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 123.14814814814814% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
-          <script>var s=document.createElement("script");s.src="https://scripts.converteai.net/9277e305-6e10-45ef-8690-34eb3d6aebf7/players/6a8f6030267f51fbe614e412/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
+          <vturb-smartplayer id="ab-6aef9910e4056bc5cf6bc8d2" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+          <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/56c6f9bc-53ca-40c3-8d9b-8c76bd771c4c/ab-test/6aef9910e4056bc5cf6bc8d2/player.js",s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
     </section>
