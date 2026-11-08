@@ -27,10 +27,9 @@
     <link rel="stylesheet" href="./assets/pages/vsl/css/style.css" />
     <link rel="stylesheet" href="./fonts/fonts.css" />
 
-    <!-- H&W: vturb.min.js opens .esconder at #video[data-vdelay];
-         affiliate-trackcontrol carries every URL param onto a.buylink (it
-         replaces the page's own param-copying script). No TrackControl: the
-         page never had it, and it needs the funnel id. -->
+    <!-- H&W: VTurb call action reveals .esconder at each variant's pitchTime.
+         vsl-pitch.js watchdog opens at data-vdelay+5s as fallback.
+         affiliate-trackcontrol carries URL params onto a.buylink. -->
     <script>
       var assetsPath = "./";
     </script>
@@ -51,16 +50,16 @@
 
     <section class="vsl-video">
       <div class="wrap vsl-video__gutter">
-        <div class="vsl-video__box" id="video" data-vdelay="2847" data-stage>
+        <div class="vsl-video__box" id="video" data-vdelay="2856" data-stage>
           <vturb-smartplayer id="ab-6aef9910e4056bc5cf6bc8d2" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
           <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/56c6f9bc-53ca-40c3-8d9b-8c76bd771c4c/ab-test/6aef9910e4056bc5cf6bc8d2/player.js",s.async=!0,document.head.appendChild(s);</script>
         </div>
       </div>
     </section>
 
-    <!-- Offer. Opened by vturb.min.js at data-vdelay (47:27 on the inherited
-         video). TODO checkout: the Lumivelle checkout link goes here (the
-         page came with three buttons on Buygoods, account 13086). -->
+    <!-- Offer. Primary reveal: VTurb call action (class "esconder") at each
+         variant's pitchTime. Fallback watchdog: vsl-pitch.js opens at
+         data-vdelay + 5s (2856 = 47:36, highest pitch in the A/B group). -->
     <div class="esconder">
       <section class="vsl-cta" aria-label="Get Lumivelle">
         <a class="vsl-cta__button buylink" href="https://order.wealthpay.io/qo52qotcz7vr?hid=b2lkPW9mZl82NDcxMDc5JmFpZD1hZmZfODUwMDQzMiZ1aWQ9YmxfODY3NTQxMQ%3D%3D&affid=aff_8500432" target="_blank"><span data-fit-line>CLAIM MY BOTTLES NOW</span></a>
