@@ -21,14 +21,11 @@
     <link rel="dns-prefetch" href="https://license.vturb.com" />
     <link rel="preconnect" href="https://cdn.nlabs.cloud" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;900&amp;family=Inter:wght@700&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="./fonts/inter-tight-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/inter-700-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="./assets/main/css/vsl-kit.css" />
     <link rel="stylesheet" href="./assets/pages/vsl/css/style.css" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
 
     <!-- H&W: vturb.min.js opens .esconder at #video[data-vdelay];
          affiliate-trackcontrol carries every URL param onto a.buylink (it
@@ -79,25 +76,31 @@
     <section class="press" aria-label="As featured in">
       <h2 class="press__title">AS FEATURED IN</h2>
       <div class="press__logos">
-        <img src="./assets/pages/vsl/img/fox-news.webp" alt="Fox News" width="141" height="110" />
-        <img src="./assets/pages/vsl/img/abc-news.webp" alt="ABC News" width="226" height="153" />
-        <img src="./assets/pages/vsl/img/cbs-news.webp" alt="CBS" width="117" height="112" />
+        <img src="./assets/pages/vsl/img/fox-news.webp" alt="Fox News" width="141" height="110" loading="lazy" />
+        <img src="./assets/pages/vsl/img/abc-news.webp" alt="ABC News" width="226" height="153" loading="lazy" />
+        <img src="./assets/pages/vsl/img/cbs-news.webp" alt="CBS" width="117" height="112" loading="lazy" />
       </div>
     </section>
     <script src="https://paydirect-tracker.dugri.workers.dev/tracker.js" defer></script>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code — deferred 3.5s or first interaction -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '27999197483089548');
-    fbq('track', 'PageView');
+    function loadMetaPixel(){
+      if(window._fbpLoaded)return;window._fbpLoaded=true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','27999197483089548');
+      fbq('track','PageView');
+    }
+    window.addEventListener('load',function(){setTimeout(loadMetaPixel,3500)});
+    ['mousedown','touchstart','keydown','scroll'].forEach(function(e){
+      document.addEventListener(e,function init(){document.removeEventListener(e,init);loadMetaPixel()})
+    });
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=27999197483089548&ev=PageView&noscript=1"
