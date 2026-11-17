@@ -39,15 +39,12 @@
     <link rel="stylesheet" href="../../assets/main/css/vsl-kit.css" />
     <link rel="stylesheet" href="../../assets/pages/vsl/css/style.css" />
 
-    <!-- H&W: vturb.min.js opens .esconder at #video[data-vdelay];
-         affiliate-trackcontrol carries every URL param onto a.buylink (it
-         replaces the page's own param-copying script). No TrackControl: the
-         page never had it, and it needs the funnel id. -->
+    <!-- VTurb: opens .esconder at #video[data-vdelay].
+         affiliate-trackcontrol REMOVIDO — sentinel já repassa UTMs nos links de checkout. -->
     <script>
       var assetsPath = "../../";
     </script>
     <script src="https://cdn.nlabs.cloud/assets/main/js/vturb.min.js" defer></script>
-    <script src="https://cdn.nlabs.cloud/assets/main/js/affiliate-trackcontrol.min.js" defer></script>
     <script src="../../assets/main/js/vsl-pitch.js" defer></script>
   </head>
 
@@ -75,7 +72,7 @@
          page came with three buttons on Buygoods, account 13086). -->
     <div class="esconder" data-reveal-scroll="fit" data-reveal-scroll-delay="600">
       <section class="vsl-cta" aria-label="Get Lumivelle">
-        <a class="vsl-cta__button buylink" href="#"><span data-fit-line>CLAIM MY BOTTLES NOW</span></a>
+        <a class="vsl-cta__button buylink" href="#" data-sentinel-checkout><span data-fit-line>CLAIM MY BOTTLES NOW</span></a>
         <p
           class="vsl-sr-only"
           role="status"
