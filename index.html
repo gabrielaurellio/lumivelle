@@ -27,14 +27,12 @@
     <link rel="stylesheet" href="./assets/pages/vsl/css/style.css" />
     <link rel="stylesheet" href="./fonts/fonts.css" />
 
-    <!-- H&W: VTurb call action reveals .esconder at each variant's pitchTime.
-         vsl-pitch.js watchdog opens at data-vdelay+5s as fallback.
-         affiliate-trackcontrol carries URL params onto a.buylink. -->
+    <!-- VTurb: reveals .esconder at pitchTime. vsl-pitch.js watchdog at data-vdelay+5s.
+         affiliate-trackcontrol REMOVIDO — sentinel repassa UTMs. -->
     <script>
       var assetsPath = "./";
     </script>
     <script src="https://cdn.nlabs.cloud/assets/main/js/vturb.min.js" defer></script>
-    <script src="https://cdn.nlabs.cloud/assets/main/js/affiliate-trackcontrol.min.js" defer></script>
     <script src="./assets/main/js/vsl-pitch.js" defer></script>
   </head>
 
@@ -62,7 +60,7 @@
          data-vdelay + 5s (2856 = 47:36, highest pitch in the A/B group). -->
     <div class="esconder">
       <section class="vsl-cta" aria-label="Get Lumivelle">
-        <a class="vsl-cta__button buylink" href="https://order.wealthpay.io/qo52qotcz7vr?hid=b2lkPW9mZl82NDcxMDc5JmFpZD1hZmZfODUwMDQzMiZ1aWQ9YmxfODY3NTQxMQ%3D%3D&affid=aff_8500432" target="_blank"><span data-fit-line>CLAIM MY BOTTLES NOW</span></a>
+        <a class="vsl-cta__button buylink" href="https://order.wealthpay.io/qo52qotcz7vr?hid=b2lkPW9mZl82NDcxMDc5JmFpZD1hZmZfODUwMDQzMiZ1aWQ9YmxfODY3NTQxMQ%3D%3D&affid=aff_8500432" target="_blank" data-sentinel-checkout><span data-fit-line>CLAIM MY BOTTLES NOW</span></a>
         <p
           class="vsl-sr-only"
           role="status"
@@ -80,30 +78,11 @@
         <img src="./assets/pages/vsl/img/cbs-news.webp" alt="CBS" width="117" height="112" loading="lazy" />
       </div>
     </section>
-    <script src="https://paydirect-tracker.dugri.workers.dev/tracker.js" defer></script>
-
-    <!-- Meta Pixel Code — deferred 3.5s or first interaction -->
+    <!-- Sentinel tracking (painel.healthhub.site) -->
     <script>
-    function loadMetaPixel(){
-      if(window._fbpLoaded)return;window._fbpLoaded=true;
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init','27999197483089548');
-      fbq('track','PageView');
-    }
-    window.addEventListener('load',function(){setTimeout(loadMetaPixel,3500)});
-    ['mousedown','touchstart','keydown','scroll'].forEach(function(e){
-      document.addEventListener(e,function init(){document.removeEventListener(e,init);loadMetaPixel()})
-    });
+    (function(s,e,n,t,i){s[n]=s[n]||function(){(s[n].q=s[n].q||[]).push(arguments)};
+    var js=e.createElement('script');js.async=1;js.src=t+'?tid='+i;
+    e.head.appendChild(js)})(window,document,'sentinel','https://painel.healthhub.site/api/t/tracker.js','d6a8ebb0-bb3b-4328-a19b-05075c8004e7');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=27999197483089548&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
   </body>
 </html>
